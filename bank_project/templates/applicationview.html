@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+
+    <title>User Home</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-finance-business.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link href="{% static 'register1.css' %}" rel="stylesheet">
+
+</head>
+
+<body style="background-color:pink;">
+<!--<p style="background-image: url('img_girl.jpg');">-->
+
+<div class="sub-header" style="height:70px">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-xs-12">
+            <ul class="left-info">
+              <li><a href="#"><i class="fa fa-clock-o"></i>Mon-Fri 09:00-17:00</a></li>
+              <li><a href="#"><i class="fa fa-phone"></i>090-080-0760</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="right-icons">
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+
+ <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="#"><h2 style="color:black;">Bank WebSite</h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'bankapp:userhome' %}" style="color:black;"><b>Home</b>
+<!--                  <span class="sr-only">(current)</span>-->
+                </a>
+              </li>
+                {% if user.is_authenticated %}
+                <li>Welcome {{user.username}}</li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'bankapp:logout' %}" style="color:black;">Logout</a>
+              </li>
+                {% endif %}
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+<br><br><br><br><br>
+
+<div class="split right">
+    <div class="centered">
+        <center> <h1> <font size="8em" color="white">MY APPLICATION</font></h1></center>
+        <table border="1" align="center"  width="50%" >
+
+            <tr>
+                <th><h2>Name</h2></th>
+                <td><h2>{{bank.name}}</h2></td>
+            </tr>
+            <tr>
+                <th><h2>DOB</h2></th>
+                <td><h2>{{bank.dob}}</h2></td>
+            </tr>
+            <tr>
+                <th><h2>Age</h2></th>
+                <td><h2>{{bank.age}}</h2></td>
+            </tr>
+            <tr>
+                <th><h2>Gender</h2></th>
+                <td><h2>{{bank.gender}}</h2></td>
+            </tr>
+            <tr>
+                <th><h2>Phone</h2></th>
+                <td><h2>{{bank.phone}}</h2></td>
+            </tr>
+            <tr>
+                <th><h2>Email</h2></th>
+                <td><h2>{{bank.email}}</h2></td>
+            </tr>
+            <tr>
+                <th><h2>Address</h2></th>
+                <td><h2>{{bank.address}}</h2></td>
+            </tr>
+            <tr>
+                <th><h2>Account Type</h2></th>
+                <td><h2>{{bank.accounttype}}</h2></td>
+            </tr>
+
+
+        </table>
+    </div>
+</div>
+
+
+</body>
+</html>
